@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SME 360 - Next Gen Business Management Platform" />
+    <title>SME 360</title>
+  </head>
+  <body>
+    <script>
+      // GitHub Pages serves 404.html for unknown routes. Keep the URL, but
+      // redirect to the app base so the SPA can restore the route.
+      try {
+        sessionStorage.setItem('spa:redirect', location.pathname + location.search + location.hash);
+      } catch (e) {}
+
+      var parts = location.pathname.split('/').filter(Boolean);
+      var repo = parts[0] || '';
+      var base = '/' + repo + '/';
+      location.replace(base);
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SME 360 - Next Gen Business Management Platform" />
+    <title>SME 360</title>
+
+    <!-- GitHub Pages SPA refresh support (works with public/404.html). -->
+    <script>
+      (function () {
+        try {
+          var p = sessionStorage.getItem('spa:redirect');
+          if (p) {
+            sessionStorage.removeItem('spa:redirect');
+            history.replaceState(null, '', p);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
