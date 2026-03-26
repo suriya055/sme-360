@@ -875,7 +875,7 @@ const RecentActivity = ({ sales }) => {
             borderRadius="full"
             px={3}
             _hover={{ bg: 'brand.50', pr: 2 }}
-            onClick={() => window.location.href = '/sales'}
+            onClick={() => window.location.href = `${import.meta.env.BASE_URL}sales`}
           >
             View All
           </Button>

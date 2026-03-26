@@ -49,7 +49,8 @@ api.interceptors.response.use(
     if (status === 401) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
-      window.location.href = '/login';
+      // GitHub Pages hosts under "/<repo>/", so never hardcode absolute "/login".
+      window.location.href = `${import.meta.env.BASE_URL}login`;
     } else if (status === 500) {
       import('react-hot-toast').then(({ default: toast }) => {
         toast.error('Server error. Please try again shortly.', { id: 'server-error-500' });
