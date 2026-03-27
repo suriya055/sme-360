@@ -7,6 +7,32 @@
   NODE_VERSION = "20"
   CI = "true"
 
+# Proxy API + uploads to Render backend (so the app can use `/api/...` everywhere).
+[[redirects]]
+  from = "/api/*"
+  to = "https://smart-business-system-q0o9.onrender.com/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/uploads/*"
+  to = "https://smart-business-system-q0o9.onrender.com/uploads/:splat"
+  status = 200
+  force = true
+
+# Optional: allow Meta webhook to hit the same Netlify domain and proxy to Render.
+[[redirects]]
+  from = "/webhook/*"
+  to = "https://smart-business-system-q0o9.onrender.com/webhook/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/webhook"
+  to = "https://smart-business-system-q0o9.onrender.com/webhook"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
