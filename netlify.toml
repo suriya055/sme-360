@@ -9,6 +9,12 @@
 
 # Proxy API + uploads to Render backend (so the app can use `/api/...` everywhere).
 [[redirects]]
+  from = "/api/health"
+  to = "https://smart-business-system-q0o9.onrender.com/health"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/api/*"
   to = "https://smart-business-system-q0o9.onrender.com/api/:splat"
   status = 200
