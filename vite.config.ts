@@ -7,7 +7,9 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   // Important: GitHub Actions provides env vars via process.env, not .env files.
   // loadEnv() reads from .env.* files, so we also check process.env for CI/CD.
-  const base = process.env.VITE_BASE_PATH || env.VITE_BASE_PATH || '/';
+  // NOTE: This repo doesn't ship a tsconfig/@types/node, so the editor may not know `process`.
+  // Accessing via globalThis keeps runtime behavior (Node has process.env) while avoiding TS 2580 errors.
+  const base = (globalThis as any)?.process?.env?.VITE_BASE_PATH || env.VITE_BASE_PATH || '/';
 
   return {
     base,
