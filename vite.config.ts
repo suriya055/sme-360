@@ -5,7 +5,9 @@ export default defineConfig(({ mode }) => {
   // For GitHub Pages, you must set base to "/<repo-name>/" (e.g. "/sme-360/").
   // For Netlify/normal hosting, keep base as "/".
   const env = loadEnv(mode, process.cwd(), '');
-  const base = env.VITE_BASE_PATH || '/';
+  // Important: GitHub Actions provides env vars via process.env, not .env files.
+  // loadEnv() reads from .env.* files, so we also check process.env for CI/CD.
+  const base = process.env.VITE_BASE_PATH || env.VITE_BASE_PATH || '/';
 
   return {
     base,
